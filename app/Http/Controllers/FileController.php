@@ -32,6 +32,7 @@ class FileController extends BaseController
         $files = Storage::files('music');
 	$response = [];
 	foreach($files as $file){
+	$file = str_replace('music/', '', $name);
 	array_push($response,[
 	'file' => $file
 	]);
