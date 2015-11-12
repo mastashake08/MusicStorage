@@ -23,7 +23,7 @@ class FileController extends BaseController
 
     public function deleteFile($name)
     {
-        Storage::delete($name);
+        Storage::delete('music/'.$name);
         return response()->json('success');
     }
 
@@ -42,7 +42,7 @@ class FileController extends BaseController
 
     public function viewFile($name){
 
-        return response()->make(Storage::get($name), 200, [
+        return response()->make(Storage::get('music/'.$name), 200, [
             'Content-Type' => Storage::mimeType($name),
             'Content-Disposition' => 'inline; '.$name,
         ]);
