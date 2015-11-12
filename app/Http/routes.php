@@ -11,6 +11,6 @@
 |
 */
 
-$app->get('/', function () use ($app) {
-    return $app->welcome();
-});
+$app->get('/', 'FileController@getFileList');
+
+$app->get('{name}', 'FileController@viewFile');
