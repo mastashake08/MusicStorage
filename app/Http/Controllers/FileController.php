@@ -13,7 +13,7 @@ class FileController extends BaseController
         $file = Request::file('file');
 	$name = $file->getClientOriginalName();
 	$name = str_replace(' ', '_', $name);
-        Storage::put($name,  file_get_contents($file->getRealPath()));
+        Storage::put('music/'.$name,  file_get_contents($file->getRealPath()));
         DB::table('files')->insert(
     ['name' => $name ]
 );
@@ -29,7 +29,7 @@ class FileController extends BaseController
 
     public function getFileList(){
 
-        $files = Storage::files('/');
+        $files = Storage::files('music');
 	$response = [];
 	foreach($files as $file){
 	array_push($response,[
