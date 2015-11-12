@@ -43,8 +43,8 @@ class FileController extends BaseController
     public function viewFile($name){
 
         return response()->make(Storage::get('music/'.$name), 200, [
-            'Content-Type' => Storage::mimeType($name),
-            'Content-Disposition' => 'inline; '.$name,
+            'Content-Type' => Storage::mimeType('music/'.$name),
+            'Content-Disposition' => 'inline; '.'music/'.$name,
         ]);
 
     }
