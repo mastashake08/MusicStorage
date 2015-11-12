@@ -14,3 +14,5 @@
 $app->get('/', 'FileController@getFileList');
 
 $app->get('{name}', 'FileController@viewFile');
+
+$app->post('add','FileController@saveFile');
